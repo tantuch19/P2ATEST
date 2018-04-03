@@ -1,0 +1,16 @@
+build:
+    environment:
+        php:
+            version: 7.l
+    tests:
+        override:
+            - ./run-tests.sh
+build:
+    deployment:
+        -
+            branch: master          # you can use either the full branch name,
+            branch: feature_*       # an asterisc for e.g. any feature branches
+            branch: /feature_.*/    # or the same as a regular expression
+            commands:
+                - cd deploy && cap deploy 
+
