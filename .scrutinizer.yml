@@ -10,4 +10,15 @@ build:
             branch: /feature_.*/    # or the same as a regular expression
             commands:
                 - cd deploy && cap deploy 
+checks:
+    php:
+        code_rating: true
+        duplication: true
 
+    python:
+        code_rating: true
+        duplicate_code: true
+
+    ruby:
+        code_rating: true
+        duplicate_code: true
