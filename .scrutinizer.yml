@@ -16,15 +16,25 @@ checks:
         fix_line_ending: true
         fix_identation_4spaces: true
         fix_doc_comments: true
+build:
+    environment:
+        php:
+            version: 7.1
+
 tools:
     external_code_coverage:
         timeout: 600
         runs: 3
 build:
+    tests:
+        override:
+            - ./run-tests.sh
+build:
     deployment:
         -
-            branch: master          # you can use either the full branch name,
-            branch: feature_*       # an asterisc for e.g. any feature branches
-            branch: /feature_.*/    # or the same as a regular expression
+            branch: master          
+            branch: feature_*       
+            branch: /feature_.*/    
             commands:
-                - cd deploy && fab deploy 
+                - cd deploy && fab deploy
+ 
